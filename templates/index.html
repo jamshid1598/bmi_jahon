@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block css %}
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="{% static 'bootstrap-4.5.3-dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+    {% endblock css %}
+
+    {% block title %} <title> Asosiy Sahifa </title> {% endblock title %}
+
+
+    {% block body %}
+        
+        <header class="header-section">
+            
+            {% include 'includes/navbar.html' %}
+
+            <div class="header-content">
+    
+                <div class="left-item">
+    
+                    <h5>O'ZINGIZNING SHAXSIY </h5>
+                    <h3> ONLINE PORTFOLIOINGIZNI YARATING</h3>
+                    <p>IJODKORLIK UCHUN</p>
+    
+                    <div>
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.student.student_portfolio.all %}
+                                <a href="{% url 'portfolio_2:home' %}" class="btn btn-outline-primary px-5 my-3">
+                                    Portfolioga O'tish
+                                </a>
+                            {% else %}
+                                <a href="{% url 'portfolio_2:portfolio' %}" class="btn btn-outline-primary px-5 my-3">
+                                    Portfolio Qo'sish
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-outline-primary px-5 my-3">
+                                Accont Yaratish
+                            </a>
+                        {% endif %}
+                    </div>
+    
+                    <!-- <small> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, adipisci. </small> -->
+
+                </div>
+                <div class="right-item " >
+                    <p style='padding-top: 60px;'>
+                        {% include 'includes/message.html' %}
+                    </p>
+                </div>
+            </div>
+            
+        </header>
+
+        <div class="body-section">
+            <div class="types-section shadow-lg">
+                <div class="bg-box">
+                    <div class="container py-5">
+                        <div class="my-5">
+                            <h3 class="text-white text-center">ONLINE PORTFOLIO</h3>
+                            <p class="text-white text-center">IJODIYLAR UCHUN TAYYORLANGAN</p>
+                            <p class="text-white text-center"><small> kreativ ijodkorlar uchun professional ehtiyojlar uchun yaratilgan</small></small>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/camera.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">PHOTOGRAPHERS</p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/computer.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">DESIGNERS</p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/web-programming.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">WEB DEVELOPERS</p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/apk-file.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">ANDROID DEVELOPERS</p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/app-store.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">IOS DEVELOPERS</p>
+                            </div>
+                            <div class="col-sm-6 col-md-3 col-lg-2">
+                                <div class="inner-item ">
+                                    <!-- <i class="fab fa-facebook"></i> -->
+                                    <img style='filter: invert(1); width:64px;' src="{% static 'image/icon2/web-design.svg' %}" alt="">
+                                </div>
+                                <p class="text-white text-center mt-2">UI/UX DESIGNERS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="responsive-section my-5">
+                <div class="container py-5">
+                    <h4 class="text-muted">LOOKS GOOD </h4>
+                    <h4 class="font-weight-bold">ON ALL DEVICES</h4>
+
+                    <p class="my-3 text-muted">responsive and dinamic</p>
+                </div>
+            </div> -->
+
+            <div class="make-section my-5 py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <div class="left-item">
+                                <img src="https://i.pinimg.com/originals/3c/e6/b1/3ce6b1ee131c88c301e47b6a01444a40.jpg"
+                                    alt="this is left page">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <div class="right-item">
+                                <h3 class="font-weight-bold text-center mb-3">
+
+                                    Onlayn portfelni qanday qilish kerak
+                                </h3>
+                                <p class="text-center"> 
+                                    agar siz fotosuratchi bo'lsangiz, veb-dasturchi, android/ios ishlab chiqaruvchisi,
+                                    ux/ui dizayner, model yoki ijodiy, ishingizni Internetga joylashtirish
+                                    uzoqroq auditoriyani jalb qilishning eng yaxshi usuli. Va siz buni qila olasiz
+                                    4 ta oson qadam.
+                                </p>
+
+                                <ol class="m-3">
+                                    <li class="mb-3 text-muted font-weight-bold">Ro'yhatdan o'ting</li>
+                                    <li class="mb-3 text-muted font-weight-bold">
+                                        Bizga o'zingizning ishingiz haqida qisqacha gapirib bering. 
+                                        Bir nechta savolga javob bering va bizning portfel ishlab 
+                                        chiqaruvchimiz siz uchun veb-saytni yaratadi.
+                                    </li>
+                                    <li class="mb-3 text-muted font-weight-bold">Rasmingizni va ba'zi umumiy ma'lumotlarni qo'shing.</li>
+                                    <li class="mb-3 text-muted font-weight-bold">Siz bilan bog'lanishni istagan odamlar uchun aloqa ma'lumotlarini bering.</li>
+                                </ol>
+
+                                <div class="d-flex justify-content-center w-100">
+                                    <a href="{% url 'portfolio_2:portfolio' %}" class="btn btn-primary"> Hozir Boshlash </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section  bg-light mt-5 py-5">
+                <div class="container">
+                    <h2 class="text-center font-weight-bold text-uppercase mb-5">onlayn portfel bo'yicha savollar</h2>
+
+                    <div class="acc-box mb-3">
+                        <div class="acc-top border-bottom p-3 d-flex justify-content-between mb-3 border-dark">
+                            <span class="font-weight-bold"> Lorem ipsum dolor sit amet. </span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="acc-bottom">
+                            this is bottom
+                        </div>
+                    </div>
+                    <div class="acc-box mb-3">
+                        <div class="acc-top border-bottom p-3 d-flex justify-content-between mb-3 border-dark">
+                            <span class="font-weight-bold"> Lorem ipsum dolor sit amet. </span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="acc-bottom">
+                            this is bottom
+                        </div>
+                    </div>
+                    <div class="acc-box mb-3">
+                        <div class="acc-top border-bottom p-3 d-flex justify-content-between mb-3 border-dark">
+                            <span class="font-weight-bold"> Lorem ipsum dolor sit amet. </span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="acc-bottom">
+                            this is bottom
+                        </div>
+                    </div>
+                    <div class="acc-box mb-3">
+                        <div class="acc-top border-bottom p-3 d-flex justify-content-between mb-3 border-dark">
+                            <span class="font-weight-bold"> Lorem ipsum dolor sit amet. </span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="acc-bottom">
+                            this is bottom
+                        </div>
+                    </div>
+
+                    <h2 class="text-center font-weight-bold text-uppercase mt-5 mb-3"> mehnatsevarligingiz namoyish eting. </h2>
+                    <p class="text-center text-muted"> Har bir kasb uchun portfolio yarating mumkin </p>
+
+                    <div class="row my-5">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="d-flex justify-content-center flex-column">
+                                <h4 class="font-weight-bold text-center">Freelancer</h4>
+                                <p class="text-center">
+                                    har bir freelancer yangi mijozlarni jalb qilish, ish topish va mahoratingizni 
+                                    namoyish qilish uchun veb-saytga muhtoj. Kodlash talab qilinmasdan 
+                                    o'zingizning portfelingizni yarating.
+                                </p>
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.student.student_portfolio.all %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% else %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{% url 'login' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="d-flex justify-content-center flex-column">
+                                <h4 class="font-weight-bold text-center">Web Developer</h4>
+                                <p class="text-center">
+                                    har bir freelancer yangi mijozlarni jalb qilish, ish topish va mahoratingizni 
+                                    namoyish qilish uchun veb-saytga muhtoj. Kodlash talab qilinmasdan 
+                                    o'zingizning portfelingizni yarating.
+                                </p>
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.student.student_portfolio.all %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% else %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{% url 'login' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="d-flex justify-content-center flex-column">
+                                <h4 class="font-weight-bold text-center">Design</h4>
+                                <p class="text-center">
+                                    har bir freelancer yangi mijozlarni jalb qilish, ish topish va mahoratingizni 
+                                    namoyish qilish uchun veb-saytga muhtoj. Kodlash talab qilinmasdan 
+                                    o'zingizning portfelingizni yarating.
+                                </p>
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.student.student_portfolio.all %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% else %}
+                                        <a href="{% url 'portfolio_2:portfolio' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{% url 'login' %}" class="text-center w-100"> portfolio qo'shing </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% include 'includes/footer.html' %}
+
+    {% endblock body %}
+
+    {% block js %}
+
+        <script src="{% static 'bootstrap-4.5.3-dist/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'bootstrap-4.5.3-dist/popper.js' %}"></script>
+        <script src="{% static 'bootstrap-4.5.3-dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/index.js' %}" async defer></script>
+
+    {% endblock js %}
